@@ -106,7 +106,7 @@ export default function Homepage() {
                   asChild
                   className="border-[#7b77b9]/30 hover:bg-[#7b77b9]/10 text-black dark:text-white rounded-full"
                 >
-                  <Link href="/signup">Get Started</Link>
+                  <Link href="/about">Learn More</Link>
                 </Button>
           </div>
             </motion.div>
@@ -140,7 +140,7 @@ export default function Homepage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-muted/95 dark:bg-muted/10">
+      <section id="product" className="py-20 bg-muted/95 dark:bg-muted/10">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             className="max-w-3xl mx-auto text-center mb-16"
@@ -261,7 +261,7 @@ export default function Homepage() {
 
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white dark:bg-background">
+      <section id="FAQ" className="py-20 bg-white dark:bg-background">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             className="max-w-3xl mx-auto text-center mb-16"

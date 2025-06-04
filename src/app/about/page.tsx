@@ -118,8 +118,8 @@ export default function AboutPage() {
                 <span className="block">for Everyone</span>
               </h1>
               <p className="text-lg sm:text-xl text-black/80 dark:text-white/80 max-w-xl mx-auto lg:mx-0 mb-8">
-                We're on a mission to bridge the gap between traditional and decentralized finance, 
-                making advanced financial tools accessible to everyone, everywhere.
+                We're on a mission to unlock Stablecoin utility for Everyday Finance Globally.
+
               </p>
             </motion.div>
 
@@ -127,7 +127,50 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
+ {/* Mission Statement */}
+ <section className="py-20 bg-white dark:bg-background relative overflow-hidden">
+        <BackgroundElements />
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div
+            className="max-w-4xl mx-auto text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="p-8 md:p-12 rounded-2xl backdrop-blur-sm relative overflow-hidden bg-white/50 dark:bg-background/50 border border-black/10 dark:border-white/10">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#7b77b9]/10 via-transparent to-[#7b77b9]/10 opacity-30"></div>
+              <div className="relative z-10">
+                <motion.div
+                  className="w-20 h-20 mx-auto mb-8 rounded-full bg-[#7b77b9]/10 dark:bg-[#7b77b9]/20 flex items-center justify-center"
+                  animate={{
+                    rotate: [0, 360],
+                    transition: { duration: 20, repeat: Infinity, ease: "linear" }
+                  }}
+                >
+                  <FaRocket className="text-[#7b77b9] h-8 w-8" />
+                </motion.div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black dark:text-white">
+                  Our Mission
+                </h2>
+                <p className="text-xl text-black/80 dark:text-white/80 leading-relaxed mb-8">
+                We're a team of builders passionate about fixing fragmented financial experiences—combining ramps, yield, and real-world use into one smooth app.
+                </p>
+                <Button
+                  size="lg"
+                  asChild
+                  className="bg-[#7b77b9] hover:bg-[#7b77b9]/90 text-white px-8 rounded-full"
+                >
+                  <Link href="/waitlist">
+                    Join Our Journey <FaArrowRight className="ml-2" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+      
       {/* Our Story Section */}
       <section className="py-20 bg-muted/95 dark:bg-muted/10">
         <div className="container mx-auto px-4 sm:px-6">
@@ -270,51 +313,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Mission Statement */}
-      <section className="py-20 bg-white dark:bg-background relative overflow-hidden">
-        <BackgroundElements />
-        <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            className="max-w-4xl mx-auto text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="p-8 md:p-12 rounded-2xl backdrop-blur-sm relative overflow-hidden bg-white/50 dark:bg-background/50 border border-black/10 dark:border-white/10">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#7b77b9]/10 via-transparent to-[#7b77b9]/10 opacity-30"></div>
-              <div className="relative z-10">
-                <motion.div
-                  className="w-20 h-20 mx-auto mb-8 rounded-full bg-[#7b77b9]/10 dark:bg-[#7b77b9]/20 flex items-center justify-center"
-                  animate={{
-                    rotate: [0, 360],
-                    transition: { duration: 20, repeat: Infinity, ease: "linear" }
-                  }}
-                >
-                  <FaRocket className="text-[#7b77b9] h-8 w-8" />
-                </motion.div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black dark:text-white">
-                  Our Mission
-                </h2>
-                <p className="text-xl text-black/80 dark:text-white/80 leading-relaxed mb-8">
-                  To democratize access to advanced financial tools by creating seamless bridges 
-                  between traditional and decentralized finance, empowering individuals to take 
-                  control of their financial future with confidence and ease.
-                </p>
-                <Button
-                  size="lg"
-                  asChild
-                  className="bg-[#7b77b9] hover:bg-[#7b77b9]/90 text-white px-8 rounded-full"
-                >
-                  <Link href="/waitlist">
-                    Join Our Journey <FaArrowRight className="ml-2" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+     
     </Layout>
   );
 }
