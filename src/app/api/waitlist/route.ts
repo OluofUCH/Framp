@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import crypto from "crypto";
-import { headers } from "next/headers";
 import { NextRequest } from 'next/server';
 
 // API configuration
@@ -110,11 +109,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Get headers using the headers() function
-    const headerList = headers();
-    const ip_address = headerList.get("x-forwarded-for");
-    const user_agent = headerList.get("user-agent");
-
     // Send data to API
     const response = await fetch(API_URL, {
       method: 'POST',
@@ -127,8 +121,6 @@ export async function POST(request: Request) {
         name: name || null,
         wallet: wallet || null,
         referral: referral || null,
-        ip_address: ip_address || null,
-        user_agent: user_agent || null,
         status: "pending",
         created_at: new Date().toISOString(),
       })
