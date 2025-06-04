@@ -101,7 +101,6 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { email, name, wallet, referral } = body;
-    const headersList = headers();
 
     // Input validation
     if (!email || typeof email !== "string" || !email.includes("@")) {
@@ -111,9 +110,10 @@ export async function POST(request: Request) {
       );
     }
 
-    // Get headers safely
-    const ip_address = headersList.has("x-forwarded-for") ? headersList.get("x-forwarded-for") : null;
-    const user_agent = headersList.has("user-agent") ? headersList.get("user-agent") : null;
+    // Get headers using the headers() function
+    const headerList = headers();
+    const ip_address = headerList.get("x-forwarded-for");
+    const user_agent = headerList.get("user-agent");
 
     // Send data to API
     const response = await fetch(API_URL, {
@@ -127,8 +127,8 @@ export async function POST(request: Request) {
         name: name || null,
         wallet: wallet || null,
         referral: referral || null,
-        ip_address,
-        user_agent,
+        ip_address: ip_address || null,
+        user_agent: user_agent || null,
         status: "pending",
         created_at: new Date().toISOString(),
       })
