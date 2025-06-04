@@ -111,8 +111,9 @@ export async function POST(request: Request) {
       );
     }
 
-    const ip_address = headersList.get("x-forwarded-for") || null;
-    const user_agent = headersList.get("user-agent") || null;
+    // Get headers safely
+    const ip_address = headersList.has("x-forwarded-for") ? headersList.get("x-forwarded-for") : null;
+    const user_agent = headersList.has("user-agent") ? headersList.get("user-agent") : null;
 
     // Send data to API
     const response = await fetch(API_URL, {
